@@ -3,6 +3,7 @@ from selenium import (webdriver,
 from selenium.webdriver.common.keys import Keys
 import time
 
+
 class InstaBot:
 
     def __init__(self, username, password) -> None:
@@ -34,3 +35,5 @@ class InstaBot:
         password_field.clear()
         password_field.send_keys(self.password)
         password_field.send_keys(Keys.RETURN)
+
+
