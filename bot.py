@@ -1,12 +1,18 @@
 from selenium import (webdriver,
-                      )
+                     )
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
 import time
+import random
+from data import hashtags
 
 
 class InstaBot:
 
-    def __init__(self, username, password, hashtag) -> None:
+    def __init__(self, username, password) -> None:
         """
 
         :param username: get a  user's username to login
@@ -16,7 +22,7 @@ class InstaBot:
         self.username = username
         self.password = password
         self.driver = webdriver.Chrome()
-        self.hashtag = hashtag
+        self.hashtag = random.choice(hashtags)
 
     def close_browser(self) -> None:
         """ function to close browser"""
@@ -37,8 +43,28 @@ class InstaBot:
         password_field.send_keys(self.password)
         password_field.send_keys(Keys.RETURN)
 
-    def get_and_like_photo_by_tag(self):
-        pass
+
+    def get_and_like_photo_by_tag(self) -> None:
+        """
+        function to get  results for random  tag and like it.
+        :return None
+
+        """
+        self.driver.get('https://www.instagram.com/explore/tags/'+self.hashtag+'/')
+        foto_references = []
+        for _ in range(7):
+            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            try:
+                WebDriverWait(self.driver, 5).until(EC.element_located_to_be_selected((By.TAG_NAME,'a')))
+                elements_available_in_view = self.driver.find_elements_by_tag_name('a')
+                pic_references_available_in_view = [element.get_attribute('href')
+                                                    for element in elements_available_in_view if 'com/p' in element]
+            except Exception:
+                continue
+
+            for picture_reference in pic_references_available_in_view:
+                self.driver.get(picture_reference)
+
 
 
 
