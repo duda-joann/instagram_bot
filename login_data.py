@@ -1,3 +1,3 @@
-user_data = {'login': 'vintage_geranium',
-             'password': 'blackdog',
+user_data = {'login': 'login',
+             'password': 'password',
              }
