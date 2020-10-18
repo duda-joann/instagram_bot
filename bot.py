@@ -6,7 +6,7 @@ import time
 
 class InstaBot:
 
-    def __init__(self, username, password) -> None:
+    def __init__(self, username, password, hashtag) -> None:
         """
 
         :param username: get a  user's username to login
@@ -16,6 +16,7 @@ class InstaBot:
         self.username = username
         self.password = password
         self.driver = webdriver.Chrome()
+        self.hashtag = hashtag
 
     def close_browser(self) -> None:
         """ function to close browser"""
@@ -35,6 +36,10 @@ class InstaBot:
         password_field.clear()
         password_field.send_keys(self.password)
         password_field.send_keys(Keys.RETURN)
+
+    def get_and_like_photo_by_tag(self):
+        pass
+
 
 
 
