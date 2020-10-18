@@ -6,17 +6,23 @@ import time
 class InstaBot:
 
     def __init__(self, username, password) -> None:
+        """
+
+        :param username: get a  user's username to login
+        :param password: get a user's password to login
+
+        """
         self.username = username
         self.password = password
         self.driver = webdriver.Chrome()
 
     def close_browser(self) -> None:
+        """ function to close browser"""
         self.driver.close()
 
     def login_into_instagram(self) -> None:
         """
-        login xpath = '//*[@id="loginForm"]/div/div[1]/div/label/input'
-        password xpath = '//*[@id="loginForm"]/div/div[2]/div/label/input'
+        function to login into instagram
 
         """
         self.driver.get("https://www.instagram.com/")
