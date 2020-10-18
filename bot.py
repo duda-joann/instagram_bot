@@ -10,6 +10,9 @@ class InstaBot:
         self.password = password
         self.driver = webdriver.Chrome()
 
+    def close_browser(self) -> None:
+        self.driver.close()
+
     def login_into_instagram(self) -> None:
         """
         login xpath = '//*[@id="loginForm"]/div/div[1]/div/label/input'
