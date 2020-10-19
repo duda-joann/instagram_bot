@@ -66,6 +66,12 @@ class InstaBot:
                 self.driver.get(picture_reference)
 
 
+    def follow_users(self):
+        pass
+
+
+
+
 
 
 
