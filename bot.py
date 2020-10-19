@@ -43,6 +43,8 @@ class InstaBot:
         password_field.send_keys(self.password)
         password_field.send_keys(Keys.RETURN)
 
+        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH,
+                                                                         '//*[@class="cmbtv"]'))).click()
 
     def get_and_like_photo_by_tag(self) -> None:
         """
@@ -51,7 +53,6 @@ class InstaBot:
 
         """
         self.driver.get('https://www.instagram.com/explore/tags/'+self.hashtag+'/')
-        foto_references = []
         for _ in range(7):
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             try:
@@ -64,6 +65,12 @@ class InstaBot:
 
             for picture_reference in pic_references_available_in_view:
                 self.driver.get(picture_reference)
+
+
+    def follow_users(self):
+        pass
+
+
 
 
 
