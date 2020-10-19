@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad82f105-9762-4989-8786-15fd82d8c64a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/instagram_bot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/instagram_bot.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603050432709</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="get result by tag">
+      <created>1603134804573</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603134804573</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +137,7 @@
     <MESSAGE value="adding close function" />
     <MESSAGE value="adding comments to code" />
     <MESSAGE value="creating function get results by  random tag" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating function get results by  random tag" />
+    <MESSAGE value="get result by tag" />
+    <option name="LAST_COMMIT_MESSAGE" value="get result by tag" />
   </component>
 </project>

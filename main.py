@@ -8,7 +8,6 @@ if __name__ == '__main__':
     password = user_data['password']
     instagram = InstaBot(username, password)
     instagram.login_into_instagram()
-
     while True:
         try:
             instagram.get_and_like_photo_by_tag()
