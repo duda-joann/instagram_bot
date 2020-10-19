@@ -52,19 +52,32 @@ class InstaBot:
         :return None
 
         """
+        picture_valid_hrefs = []
         self.driver.get('https://www.instagram.com/explore/tags/'+self.hashtag+'/')
+
         for _ in range(7):
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             try:
                 WebDriverWait(self.driver, 5).until(EC.element_located_to_be_selected((By.TAG_NAME,'a')))
                 elements_available_in_view = self.driver.find_elements_by_tag_name('a')
                 pic_references_available_in_view = [element.get_attribute('href')
-                                                    for element in elements_available_in_view if 'com/p' in element]
+                                                    for element in elements_available_in_view
+                                                    if '/p/' in element.get_attribute('href')]
+                [picture_valid_hrefs.append(element) for element in pic_references_available_in_view
+                 if element not in picture_valid_hrefs]
+
             except Exception:
                 continue
 
             for picture_reference in pic_references_available_in_view:
-                self.driver.get(picture_reference)
+                self.driver.get('https://www.instagram.com/' + picture_reference)
+                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                try:
+                    time.sleep(random.randint(2, 4))
+                    like_button = self.driver.find_element_by_xpath('//span[@aria-label="Like"]')
+                    like_button().click()
+                except Exception:
+                        continue
 
 
     def follow_users(self):
