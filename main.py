@@ -10,7 +10,8 @@ if __name__ == '__main__':
     instagram.login_into_instagram()
     while True:
         try:
-            instagram.get_and_like_photo_by_tag()
+            instagram.follow_users()
+            #instagram.get_and_like_photo_by_tag()
         except:
             instagram.close_browser()
             time.sleep(60)
