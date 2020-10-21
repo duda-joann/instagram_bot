@@ -55,7 +55,7 @@ class InstaBot:
         picture_valid_hrefs = []
         self.driver.get('https://www.instagram.com/explore/tags/'+self.hashtag+'/')
 
-        for _ in range(7):
+        for i in range(1, 3):
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             try:
                 WebDriverWait(self.driver, 5).until(EC.element_located_to_be_selected((By.TAG_NAME,'a')))
@@ -79,9 +79,21 @@ class InstaBot:
                 except Exception:
                         continue
 
+    def follow_users(self) -> None:
+        self.driver.get('https://www.instagram.com/explore/people/suggested/')
+        try:
+            all_buttons = WebDriverWait(self.driver, 10).until(EC.presence_of_all_elements_located((By.XPATH, "//button")))
+            for button in all_buttons:
+                if button.is_clickable():
+                    button.click()
 
-    def follow_users(self):
-        pass
+        except Exception:
+                print('No result found')
+
+
+
+
+
 
 
 

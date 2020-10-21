@@ -1,4 +1,4 @@
-user_data = {'login': 'username',
+user_data = {'login': 'user',
              'password': 'password',
              }
 
